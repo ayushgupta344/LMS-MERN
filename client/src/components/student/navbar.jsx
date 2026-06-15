@@ -1,11 +1,19 @@
-import React from 'react'
-import { assets } from '../../assets/assets'
-import { Link } from 'react-router-dom'
-import { useClerk,Show,useUser, SignInButton, SignUpButton, UserButton } from "@clerk/react";
+import React from "react";
+import { assets } from "../../assets/assets";
+import { Link } from "react-router-dom";
+import {
+  useClerk,
+  Show,
+  useUser,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from "@clerk/react";
+//Clerk auth
 const Navbar = () => {
-  const iscourselistpage=location.pathname.includes('/course-list')
-  const {openSignIn} =useClerk()
-  const {user} = useUser()
+  const iscourselistpage = location.pathname.includes("/course-list");
+  const { openSignIn } = useClerk();
+  const { user } = useUser();
   return (
     <div
       className={`flex items-center justify-between px-4 sm:px-10 md:px-14 lg:px-36 border-b border-gray-500 py-4 ${iscourselistpage ? "bg-white" : "bg-cyan-100/70"}`}
@@ -36,7 +44,7 @@ const Navbar = () => {
         )}
       </div>
       <div className="md:hidden flex items-center gap-2 sm:gap-5 text-gray-500">
-        <div className='flex items-center gap-1 sm:gap-2 max-sm:text-xs'>
+        <div className="flex items-center gap-1 sm:gap-2 max-sm:text-xs">
           {user && (
             <>
               <button>Become Educator</button>|{" "}
@@ -44,13 +52,16 @@ const Navbar = () => {
             </>
           )}
         </div>
-        {user?<UserButton/>:
-          <button onClick={()=> openSignIn()}>
-          <img src={assets.user_icon} alt="user-icon" />
-        </button>}
+        {user ? (
+          <UserButton />
+        ) : (
+          <button onClick={() => openSignIn()}>
+            <img src={assets.user_icon} alt="user-icon" />
+          </button>
+        )}
       </div>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
