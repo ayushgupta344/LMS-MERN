@@ -5,7 +5,7 @@ import { assets } from "../../assets/assets";
 import Footer from "../../components/student/Footer";
 
 // ── Extract YouTube video ID from any YT URL format ──────────────────
-const getYoutubeId = (url) => {
+export const getYoutubeId = (url) => {
   if (!url) return null;
   // handles: youtu.be/ID  |  youtube.com/watch?v=ID  |  youtube.com/embed/ID
   const match = url.match(
