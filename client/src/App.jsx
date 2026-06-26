@@ -25,7 +25,7 @@ const App = () => {
         <Route path="/course-list/:input" element={<Courselist />} />
         <Route path="/player/:courseid" element={<Player />} />
         <Route path="/educator" element={<Educator />}>
-          <Route path="educator" element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
           <Route path="add-course" element={<Addcourse />} />
           <Route path="my-courses" element={<Mycourse />} />
           <Route path="student-enrolled" element={<Studentsenrolled />} />
